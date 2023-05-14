@@ -73,7 +73,7 @@ class _WebPageScreenState extends State<WebPageScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: WebviewScaffold(
-        url: "https://yowin.in",
+        url: "https://clickwins.in",
         withJavascript: true,
         withLocalStorage: true,
         withLocalUrl: true,
