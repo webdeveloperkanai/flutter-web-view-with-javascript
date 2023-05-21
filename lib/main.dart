@@ -73,7 +73,7 @@ class _WebPageScreenState extends State<WebPageScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: WebviewScaffold(
-        url: "https://clickwins.in",
+        url: "https://color.deephd.online/",
         withJavascript: true,
         withLocalStorage: true,
         withLocalUrl: true,

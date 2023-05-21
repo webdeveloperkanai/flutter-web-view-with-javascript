@@ -1,4 +1,4 @@
-package com.yowin.web_apk
+package com.devil.win
 
 import io.flutter.embedding.android.FlutterActivity
 
