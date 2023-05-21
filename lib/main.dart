@@ -71,7 +71,7 @@ class WebPageScreen extends StatefulWidget {
 class _WebPageScreenState extends State<WebPageScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: WebviewScaffold(
         url: "https://color.deephd.online/",
         withJavascript: true,
