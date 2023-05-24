@@ -1,6 +1,7 @@
-// ignore_for_file: constant_identifier_names, prefer_interpolation_to_compose_strings, avoid_print
+// ignore_for_file: constant_identifier_names, prefer_interpolation_to_compose_strings, avoid_print, prefer_const_constructors, unused_local_variable
 
 import 'dart:async';
+import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -9,6 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 const APP_API = "https://color.devsecit.com/api.php";
 const APP_UPDATE = "https://color.devsecit.com/COLOR.apk";
+const APP_NAME = "Devil Win";
 
 void main() {
   runApp(const MyApp());
@@ -19,12 +21,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: APP_NAME,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
@@ -66,7 +68,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     updateCheck();
     super.initState();
     Timer(Duration(seconds: 3), () {
@@ -114,17 +115,46 @@ class WebPageScreen extends StatefulWidget {
 class _WebPageScreenState extends State<WebPageScreen> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: WebviewScaffold(
-        url: "https://color.devsecit.com/",
-        withJavascript: true,
-        withLocalStorage: true,
-        withLocalUrl: true,
-        withZoom: false,
-        allowFileURLs: true,
-        appCacheEnabled: true,
-        displayZoomControls: false,
-        userAgent: "random",
+    return WillPopScope(
+      onWillPop: () async {
+        showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+                  content: Text("Do you want to exit?"),
+                  actions: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          SystemNavigator.pop();
+                        },
+                        child: Text("Yes")),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("No")),
+                  ],
+                ));
+        return false;
+      },
+      child: const SafeArea(
+        child: WebviewScaffold(
+          url: "https://color.devsecit.com/",
+          withJavascript: true,
+          withLocalStorage: true,
+          withLocalUrl: true,
+          withZoom: false,
+          allowFileURLs: true,
+          appCacheEnabled: true,
+          displayZoomControls: false,
+          userAgent: "random",
+          geolocationEnabled: true,
+          resizeToAvoidBottomInset: true,
+          scrollBar: false,
+          supportMultipleWindows: true,
+          ignoreSSLErrors: true,
+          debuggingEnabled: false,
+        ),
       ),
     );
   }
