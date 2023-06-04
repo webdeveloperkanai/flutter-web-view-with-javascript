@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "338879019577",
+    "project_id": "devil-win",
+    "storage_bucket": "devil-win.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338879019577:android:c5c698fe596ff70af86be8",
+        "android_client_info": {
+          "package_name": "com.devil.win"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338879019577-0eo2gpgdana7nq201us84qvaaeo4sta4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devil.win",
+            "certificate_hash": "bb4aa19d20d17520fc0f44351ca54869e58c644f"
+          }
+        },
+        {
+          "client_id": "338879019577-rek6i4eumoauj030u5uud5mdquvntlpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRWcscKLDrMk-65HGVcJu5x3vr5K5QLJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338879019577-rek6i4eumoauj030u5uud5mdquvntlpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
