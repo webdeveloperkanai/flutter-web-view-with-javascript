@@ -120,7 +120,7 @@ class _MyAppState extends State<MyApp> {
   oneSignalInAppMessagingTriggerExamples() async {
     OneSignal.shared.addTrigger("trigger_1", "one");
 
-    Map<String, Object> triggers = new Map<String, Object>();
+    Map<String, Object> triggers = Map<String, Object>();
     triggers["trigger_2"] = "two";
     triggers["trigger_3"] = "three";
     OneSignal.shared.addTriggers(triggers);
@@ -209,7 +209,7 @@ class _SplashScreenState extends State<SplashScreen> {
       return "true";
     } else {
       isUpdateAvailable = false;
-      setState(() {});
+      // setState(() {});
 
       print("App Version " + version.toString().replaceAll(".", ""));
       return "false";
