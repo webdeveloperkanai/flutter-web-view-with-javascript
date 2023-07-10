@@ -1,8 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
+const APP_NAME = "Color Prediction";
+const APP_URI = "https://color.devsecit.com";
 void main() {
   runApp(const MyApp());
 }
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: APP_NAME,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -32,8 +36,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (_) => WebPageScreen()));
     });
@@ -43,19 +46,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            "assets/logo.png",
-            height: 230,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 5,
-          ),
-          CircularProgressIndicator(),
-        ],
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/logo.png",
+              height: 230,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 5,
+            ),
+            CircularProgressIndicator(),
+          ],
+        ),
       ),
     );
   }
@@ -73,7 +80,7 @@ class _WebPageScreenState extends State<WebPageScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: WebviewScaffold(
-        url: "https://clickwins.in",
+        url: APP_URI,
         withJavascript: true,
         withLocalStorage: true,
         withLocalUrl: true,
@@ -82,6 +89,12 @@ class _WebPageScreenState extends State<WebPageScreen> {
         appCacheEnabled: true,
         displayZoomControls: false,
         userAgent: "random",
+        supportMultipleWindows: true,
+        ignoreSSLErrors: true,
+        initialChild: Center(
+          child: CircularProgressIndicator(),
+        ),
+        enableAppScheme: true,
       ),
     );
   }

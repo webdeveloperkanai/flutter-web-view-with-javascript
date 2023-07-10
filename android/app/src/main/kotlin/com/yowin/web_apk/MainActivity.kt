@@ -1,4 +1,4 @@
-package com.yowin.web_apk
+package com.cehpoint.colorp
 
 import io.flutter.embedding.android.FlutterActivity
 
